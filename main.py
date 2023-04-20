@@ -40,7 +40,7 @@ model.add(Dropout(0.2))
 model.add(Dense(units = 1))
 
 model.compile(optimizer = 'adam', loss = 'mse')
-model.fit(xTrain, yTrain, epochs = 20, batch_size = 32)
+model.fit(xTrain, yTrain, epochs = 50, batch_size = 25)
 
 print(test['Close'].values)
 
