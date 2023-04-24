@@ -15,6 +15,8 @@ train = apl.loc['2015-1-1':'2020-1-1'].copy()
 
 test = apl.loc['2020-1-2':].copy()
 
+total = pd.concat((train['Close'], test['Close']), axis = 0)
+
 scaler = MinMaxScaler(feature_range = (0, 1))
 aplScaled = scaler.fit_transform(train['Close'].values.reshape(-1, 1))
 
@@ -39,8 +41,6 @@ model.compile(optimizer = 'adam', loss = 'mse')
 model.fit(xTrain, yTrain, epochs = 25, batch_size = 25)
 
 print(test['Close'].values)
-
-total = pd.concat((train['Close'], test['Close']), axis = 0)
 
 modelInput = total[len(total) - len(test) - back:].values
 modelInput = modelInput.reshape(-1, 1)
