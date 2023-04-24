@@ -38,7 +38,7 @@ model.add(LSTM(units = 50))
 model.add(Dense(units = 1))
 
 model.compile(optimizer = 'adam', loss = 'mse')
-model.fit(xTrain, yTrain, epochs = 25, batch_size = 25)
+model.fit(xTrain, yTrain, epochs = 20, batch_size = 25)
 
 print(test['Close'].values)
 
